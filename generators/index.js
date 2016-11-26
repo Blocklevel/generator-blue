@@ -17,11 +17,12 @@ module.exports = generator.Base.extend({
             value: 'page'
           },
           {
-            name: 'Generate store module',
+            name: 'Make a new store module',
             value: 'store'
           }
         ],
-        default: 0
+        default: 0,
+        store: true
       }
     ]).then((answer) => {
       this.composeWith(`blue:${answer.task}`)
