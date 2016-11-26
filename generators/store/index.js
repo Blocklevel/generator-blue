@@ -27,7 +27,8 @@ const ComponentGenerator = module.exports = generator.Base.extend({
             value: true
           }
         ],
-        default: 0
+        default: 0,
+        store: true
       },
       {
         when: function (response) {
@@ -35,7 +36,7 @@ const ComponentGenerator = module.exports = generator.Base.extend({
         },
         type: 'input',
         name: 'events',
-        message: 'Type a list of events (ex: get, set, delete)'
+        message: 'Type a list of events (ex: getPost or get post)'
       }
     ]).then((answer) => {
       this._generateComponent(answer)
@@ -57,7 +58,7 @@ const ComponentGenerator = module.exports = generator.Base.extend({
       const file = this.templatePath(`${tplPath}/${partial}.js`)
       const dest = this.destinationPath(`${distPath}/${name}/${partial}.js`)
 
-      this.fs.copyTpl(file, dest, { name, eventsList })
+      this.fs.copyTpl(file, dest, { name, eventsList, user })
     })
   }
 })
