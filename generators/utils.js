@@ -26,7 +26,7 @@ const getUser = () => {
 }
 
 const eventParser = (events) => {
-  let result = _.map(events, event => _.toUpper(_.snakeCase(event.trim())))
+  let result = _.map(events.split(','), event => _.toUpper(_.snakeCase(event.trim())))
   return _.compact(result)
 }
 

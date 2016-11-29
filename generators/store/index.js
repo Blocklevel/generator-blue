@@ -38,10 +38,10 @@ module.exports = generator.Base.extend({
         name: 'events',
         message: 'Type a list of events (ex: getPost or get post)'
       }
-    ]).then(({ filename, basic, hasEvents, events }) => {
+    ]).then(({ filename, basic, events }) => {
       const task = 'store'
       this.composeWith(`blue:file-generator`, {
-        options: { filename, basic, hasEvents, events, task }
+        options: { filename, basic, events, task }
       })
     })
   }

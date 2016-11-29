@@ -20,6 +20,10 @@ module.exports = generator.Base.extend({
           {
             name: 'Make a new store module',
             value: 'store'
+          },
+          {
+            name: 'Generate sitemap',
+            value: 'sitemap'
           }
         ],
         default: 0,
