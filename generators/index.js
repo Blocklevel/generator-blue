@@ -1,4 +1,5 @@
-const generator = require('yeoman-generator')
+var generator = require('yeoman-generator')
+var _ = require('lodash')
 
 module.exports = generator.Base.extend({
   prompting: function () {
@@ -24,8 +25,14 @@ module.exports = generator.Base.extend({
         default: 0,
         store: true
       }
-    ]).then((answer) => {
-      this.composeWith(`blue:${answer.task}`)
+    ]).then(({ task }) => {
+      let sitemap = this.config.get('sitemap')
+
+      if (!sitemap) {
+        sitemap = this.config.set('sitemap', {})
+      }
+
+      this.composeWith(`blue:${task}`)
     })
   }
 })

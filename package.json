@@ -6,7 +6,8 @@
   "files": [
     "generators/map",
     "generator/component",
-    "generator/page"
+    "generator/page",
+    "generator/file-generator"
   ],
   "keywords": [
     "yeoman-generator"

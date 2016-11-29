@@ -4,7 +4,7 @@ const chalk = require('chalk')
 const utils = require('../utils')
 const moment = require('moment');
 
-const ComponentGenerator = module.exports = generator.Base.extend({
+module.exports = generator.Base.extend({
   prompting: function () {
     return this.prompt([
       {
@@ -29,22 +29,11 @@ const ComponentGenerator = module.exports = generator.Base.extend({
         ],
         default: 0
       }
-    ]).then((answer) => {
-      this._generateComponent(answer)
-    })
-  },
-  _generateComponent: function ({ filename, basic }) {
-    const user = utils.getUser()
-    const name = _.kebabCase(filename)
-    const tplPath = '../../templates/component'
-    const distPath = 'src/app/component'
-    const componentStructure = ['js', 'vue', 'css']
-
-    _.each(componentStructure, (type) => {
-      const file = this.templatePath(`${tplPath}/index.${type}`)
-      const dest = this.destinationPath(`${distPath}/${name}/${name}.${type}`)
-
-      this.fs.copyTpl(file, dest, { name, user, basic })
+    ]).then(({ filename, basic }) => {
+      const task = 'component'
+      this.composeWith(`blue:file-generator`, {
+        options: { filename, basic, task }
+      })
     })
   }
 })

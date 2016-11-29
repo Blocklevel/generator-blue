@@ -1,5 +1,6 @@
 const shelljs = require('shelljs')
 const _ = require('lodash')
+const generator = require('yeoman-generator')
 
 /**
  * Get single labels from the github configuration
@@ -24,7 +25,13 @@ const getUser = () => {
   }
 }
 
+const eventParser = (events) => {
+  let result = _.map(events, event => _.toUpper(_.snakeCase(event.trim())))
+  return _.compact(result)
+}
+
 module.exports = {
   getUser,
-  getUserInfo
+  getUserInfo,
+  eventParser
 }
