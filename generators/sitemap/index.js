@@ -8,11 +8,11 @@ module.exports = generator.Base.extend({
     const sitemap = this.config.get('sitemap')
 
     if (!sitemap) {
-      this.log(chalk.bold.red('[Blue Error] Missing .yo-rc.json file. See documentation'))
+      const message = chalk.bold.red('[Blue Error] Missing .yo-rc.json file. Read docs at')
+      const link = chalk.italic.red('https://github.com/Blocklevel/generator-blue')
+      this.log(`${message} ${link}`)
       return
     }
-
-    this.log('making website...')
 
     if (sitemap.page) {
       _.forIn(sitemap.page, (value, key) => {

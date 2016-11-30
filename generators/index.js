@@ -1,5 +1,6 @@
-var generator = require('yeoman-generator')
-var _ = require('lodash')
+const generator = require('yeoman-generator')
+const _ = require('lodash')
+const chalk = require('chalk')
 
 module.exports = generator.Base.extend({
   prompting: function () {
@@ -31,6 +32,13 @@ module.exports = generator.Base.extend({
       }
     ]).then(({ task }) => {
       let sitemap = this.config.get('sitemap')
+
+      if (task === 'sitemap') {
+        const message = chalk.bold.red('[Blue Error] Missing .yo-rc.json file. Read docs at')
+        const link = chalk.italic.red('https://github.com/Blocklevel/generator-blue')
+        this.log(`${message} ${link}`)
+        return
+      }
 
       if (!sitemap) {
         sitemap = this.config.set('sitemap', {})
