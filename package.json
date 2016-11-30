@@ -15,7 +15,12 @@
     "generator/file-generator",
     "generator/sitemap"
   ],
+  "repository": "yeoman/generator-blue",
   "keywords": [
+    "blue",
+    "generator",
+    "blue scaffold",
+    "blocklevel",
     "yeoman-generator"
   ],
   "dependencies": {
