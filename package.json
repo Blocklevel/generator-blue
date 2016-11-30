@@ -9,6 +9,7 @@
     "url": "https://github.com/Blocklevel"
   },
   "files": [
+    "generators/app",
     "generators/map",
     "generator/component",
     "generator/page",
