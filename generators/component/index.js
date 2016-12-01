@@ -1,8 +1,4 @@
 const generator = require('yeoman-generator')
-const _ = require('lodash')
-const chalk = require('chalk')
-const utils = require('../utils')
-const moment = require('moment');
 
 module.exports = generator.Base.extend({
   prompting: function () {

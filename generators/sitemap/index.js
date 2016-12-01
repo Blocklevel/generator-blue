@@ -1,54 +1,25 @@
 const generator = require('yeoman-generator')
-const utils = require('../utils')
 const _ = require('lodash')
-const chalk = require('chalk')
+const format = require('../../format')
 
 module.exports = generator.Base.extend({
   generate: function () {
     const sitemap = this.config.get('sitemap')
+    const tasks = ['page', 'component', 'store']
 
-    if (!sitemap) {
-      const message = chalk.bold.red('[Blue Error] Missing .yo-rc.json file. Read docs at')
-      const link = chalk.italic.red('https://github.com/Blocklevel/generator-blue')
-      this.log(`${message} ${link}`)
+    if (!format.defineSitemap('sitemap', sitemap)) {
       return
     }
 
-    if (sitemap.page) {
-      _.forIn(sitemap.page, (value, key) => {
-        this.composeWith(`blue:file-generator`, {
-          options: {
-            filename: key,
-            basic: value.basic,
-            task: 'page'
-          }
+    _.each(tasks, task => {
+      _.forIn(sitemap[task], (value, key) => {
+        const options = _.assignIn({}, value, {
+          filename: key,
+          task
         })
-      })
-    }
 
-    if (sitemap.component) {
-      _.forIn(sitemap.component, (value, key) => {
-        this.composeWith(`blue:file-generator`, {
-          options: {
-            filename: key,
-            basic: value.basic,
-            task: 'component'
-          }
-        })
+        this.composeWith(`blue:file-generator`, { options })
       })
-    }
-
-    if (sitemap.store) {
-      _.forIn(sitemap.store, (value, key) => {
-        this.composeWith(`blue:file-generator`, {
-          options: {
-            filename: key,
-            basic: value.basic,
-            events: value.events,
-            task: 'store'
-          }
-        })
-      })
-    }
+    })
   }
 })
