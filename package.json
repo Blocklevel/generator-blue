@@ -13,7 +13,11 @@
     "generators/component",
     "generators/page",
     "generators/file-generator",
-    "generators/sitemap"
+    "generators/sitemap",
+    "generators/store",
+    "generators/templates",
+    "generators/format.js",
+    "generators/utils.js"
   ],
   "repository": "yeoman/generator-blue",
   "keywords": [
