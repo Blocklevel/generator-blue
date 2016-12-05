@@ -11,10 +11,6 @@ module.exports = generator.Base.extend({
         message: 'What you want to do?',
         choices: [
           {
-            name: 'Scaffold Blue',
-            value: 'scaffold'
-          },
-          {
             name: 'Make a new component',
             value: 'component'
           },
@@ -27,7 +23,7 @@ module.exports = generator.Base.extend({
             value: 'store'
           },
           {
-            name: 'Generate sitemap',
+            name: 'Scaffold from sitemap',
             value: 'sitemap'
           }
         ],

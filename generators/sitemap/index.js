@@ -1,6 +1,6 @@
 const generator = require('yeoman-generator')
 const _ = require('lodash')
-const format = require('../../format')
+const format = require('../format')
 
 module.exports = generator.Base.extend({
   generate: function () {
