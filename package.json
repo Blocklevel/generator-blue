@@ -1,6 +1,6 @@
 {
   "name": "generator-blue",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "generators/index.js",
   "description": "Yeoman generator for scaffolding with Blue",
   "author": {
