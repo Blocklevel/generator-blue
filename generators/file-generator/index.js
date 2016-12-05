@@ -1,5 +1,5 @@
 const generator = require('yeoman-generator')
-const utils = require('../../utils')
+const utils = require('../utils')
 const _ = require('lodash')
 
 module.exports = generator.Base.extend({
@@ -13,21 +13,21 @@ module.exports = generator.Base.extend({
         task: 'page',
         tplFiles: ['index.js', 'index.vue', 'index.css'],
         destFiles: [`${name}.js`, `${name}.vue`, `${name}.css`],
-        tplPath: '../../../templates/page',
+        tplPath: '../../templates/page',
         destPath: 'src/app/page'
       },
       {
         task: 'component',
         tplFiles: ['index.js', 'index.vue', 'index.css'],
         destFiles: [`${name}.js`, `${name}.vue`, `${name}.css`],
-        tplPath: '../../../templates/component',
+        tplPath: '../../templates/component',
         destPath: 'src/app/component'
       },
       {
         task: 'store',
         tplFiles: ['mutations.js', 'actions.js', 'getters.js', 'events.js', 'index.js', 'state.js'],
         destFiles: ['mutations.js', 'actions.js', 'getters.js', 'events.js', 'index.js', 'state.js'],
-        tplPath: '../../../templates/store',
+        tplPath: '../../templates/store',
         destPath: 'src/app/store/modules'
       }
     ]
