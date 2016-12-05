@@ -9,11 +9,11 @@
     "url": "https://github.com/Blocklevel"
   },
   "files": [
-    "app",
-    "generator/component",
-    "generator/page",
-    "generator/file-generator",
-    "generator/sitemap"
+    "generators/app",
+    "generators/component",
+    "generators/page",
+    "generators/file-generator",
+    "generators/sitemap"
   ],
   "repository": "yeoman/generator-blue",
   "keywords": [
